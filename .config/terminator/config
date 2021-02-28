@@ -1,0 +1,29 @@
+[global_config]
+  title_font = Droid Sans Fallback 9
+[keybindings]
+  go_next = None
+  go_prev = None
+  switch_to_tab_1 = <Alt>1
+  switch_to_tab_2 = <Alt>2
+  switch_to_tab_3 = <Alt>3
+  switch_to_tab_4 = <Alt>4
+  switch_to_tab_5 = <Alt>5
+  switch_to_tab_6 = <Alt>6
+  broadcast_off = None
+  broadcast_group = None
+  broadcast_all = None
+  layout_launcher = None
+  help = None
+[profiles]
+  [[default]]
+    cursor_color = "#aaaaaa"
+    bold_is_bright = True
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
