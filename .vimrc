@@ -53,11 +53,23 @@ Plug 'tomtom/tlib_vim'
 Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
 
+" Spell lang identifier will have to be installed manually
+" Plug 'daaugusto/spelllangidentifier'
+" Also wget http://ftp.vim.org/pub/vim/runtime/spell/nl.utf-8.spl
+" auto run when set spelllang=nl
+
 call plug#end()
 
+" snipmate plugin settings
 let g:snipMate = { 'snippet_version' : 0 }
 autocmd Filetype tex setlocal iskeyword+=:
 autocmd Filetype tex setlocal iskeyword+=-
+
+" spelllangidentifier settings
+let g:sliPath = "-path ~/.vim/plugin/mguesser/mguesser"
+let g:sliLangs = "-langs 'en|nl'"
+let g:sliNLangs = "-nlangs 1"
+autocmd BufRead *.tex SpellLangIdentify setlocal spell
 
 " general settings
 " set clipboard^=unnamed          " yank to * reg/clipboard
@@ -82,7 +94,7 @@ set wildmenu                    " command completion in extra bar
 set showcmd                     " show cmd bottom right
 set scrolloff=5                 " keeps cursor lines above or below when scrolling
 set sidescrolloff=5             " keeps 5 chars of the sides
-set directory^=$HOME/.vim/tmp   " swap file location
+set directory^=$HOME/.vim/tmp   " swap file location, make sure to create this dir
 set nofoldenable                " disable folding
 set autochdir                   " autochange dir to file location NOTE: might break plugins
 set wildmode=longest,list,full  " command autocompletion...
