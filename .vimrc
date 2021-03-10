@@ -38,7 +38,26 @@ Plug 'mhinz/vim-startify'
 " autocomplete
 Plug 'ervandew/supertab'
 
+" VOOM
+Plug 'vim-voom/VOoM'
+
+" Vim Surround
+Plug 'tpope/vim-surround'
+
+" Vim Latex, to be setup
+" Plug 'vim-latex/vim-latex'
+
+" Snipmate
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'garbas/vim-snipmate'
+Plug 'honza/vim-snippets'
+
 call plug#end()
+
+let g:snipMate = { 'snippet_version' : 0 }
+autocmd Filetype tex setlocal iskeyword+=:
+autocmd Filetype tex setlocal iskeyword+=-
 
 " general settings
 " set clipboard^=unnamed          " yank to * reg/clipboard
@@ -90,6 +109,7 @@ filetype plugin indent on
 " noremap <F4> :VoomToggle<cr>
 
 nnoremap <F5> :UndotreeToggle<CR>
+nnoremap <F3> :VoomToggle latex<CR>
 
 " buffer navigation
 map <C-Right> :bn<cr>
@@ -112,12 +132,15 @@ vmap <C-c> "+y
 nmap <C-a> ggVG
 
 " surround macros
-autocmd FileType tex let b:surround_{char2nr("!")} = "!!\r!!"
 autocmd FileType tex let b:surround_{char2nr("`")} = "`\r'"
+autocmd FileType tex let b:surround_39 = "`\r'"
+autocmd FileType tex let b:surround_34 = "``\r''"
+autocmd FileType tex let b:surround_{char2nr("!")} = "!!\r!!"
 autocmd FileType tex let b:surround_{char2nr("@")} = "@@\r@@"
 autocmd FileType tex let b:surround_{char2nr("a")} = "\\acs{\r}"
 autocmd FileType tex let b:surround_{char2nr("c")} = "\\cmd{\r}"
 autocmd FileType tex let b:surround_{char2nr("e")} = "\\begin{\1environment: \1}\r\\end{\1\1}"
+autocmd FileType tex let b:surround_{char2nr("f")} = "\\footnote{\r}"
 autocmd FileType tex let b:surround_{char2nr("u")} = "\\url{\r}"
 autocmd FileType tex let b:surround_{char2nr("v")} = "\\vref{\r}"
 
