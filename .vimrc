@@ -68,6 +68,7 @@ set nofoldenable                " disable folding
 set autochdir                   " autochange dir to file location NOTE: might break plugins
 set wildmode=longest,list,full  " command autocompletion...
 set laststatus=2                " show status line
+set spell                       " spell checking
 
 syntax on                       " syntax highlighting
 set background=dark             " dark background
